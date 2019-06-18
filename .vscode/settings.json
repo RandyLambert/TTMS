@@ -1,0 +1,6 @@
+{
+    "C_Cpp.errorSquiggles": "Enabled",
+    "files.associations": {
+        "account_persist.h": "c"
+    }
+}

@@ -12,7 +12,6 @@
 #include "Seat.h"
 #include "../Persistence/Seat_Persist.h"
 
-static const char SEAT_KEY_NAME[] = "Seat";
 /*
 锟斤拷锟斤拷锟斤拷锟杰ｏ拷锟斤拷锟斤拷锟斤拷锟斤拷一锟斤拷锟斤拷锟斤拷位锟斤拷锟捷★拷
 锟斤拷锟斤拷说锟斤拷锟斤拷data为seat_t锟斤拷锟斤拷指锟诫，锟斤拷示锟斤拷要锟斤拷锟接碉拷锟斤拷位锟斤拷锟捷斤拷锟�?
@@ -89,8 +88,10 @@ inline int Seat_Srv_DeleteAllByRoomID(int roomID){
 */
 
 int Seat_Srv_FetchByRoomID(seat_list_t list, int roomID){
-
-       return Seat_Perst_SelectByRoomID(list,roomID); 
+       int SeatCount;
+       SeatCount = Seat_Perst_SelectByRoomID(list,roomID);
+       Seat_Srv_SortSeatList(list);
+       return SeatCount; 
 }
 /*
 
@@ -102,7 +103,18 @@ int Seat_Srv_FetchByRoomID(seat_list_t list, int roomID){
 int Seat_Srv_FetchValidByRoomID(seat_list_t list, int roomID)
 {
        //??????不确定？？？？？
-       return Seat_Perst_SelectByRoomID(list,roomID);
+       int SeatCount;
+       SeatCount = Seat_Perst_SelectByRoomID(list,roomID);
+       seat_list_t temp = list;
+       while(list->next!=temp){
+              list = list->next;
+              if(list->data.status!=SEAT_GOOD){
+                     SeatCount--;
+              }
+       }
+       Seat_Srv_SortSeatList(list);
+       return SeatCount;
+
        // 锟诫补锟斤拷锟斤拷锟斤拷
 }
 
@@ -126,19 +138,6 @@ int Seat_Srv_RoomInit(seat_list_t list, int roomID, int rowsCount,int colsCount)
                      tem->data.row = i;
                      tem->data.roomID = roomID;
                      tem->data.status = SEAT_GOOD;
-
-
-
-                     ////以下是新设计方案方案添加的代码
-	              ////以下是新设计方案方案添加的代码
-	              long key = EntKey_Perst_GetNewKeys(SEAT_KEY_NAME, 1); //为新演出厅分配获取
-	              if(key<=0)			//主键分配失败，直接返回
-	              	return 0;
-	              tem->data.id = key;
-                     //printf("%d\n",tem->data.id);		//赋给新对象带回到UI层
-	              ////以上是新设计方案方案添加的代码
-	              ////以上是新设计方案方案添加的代码
-
                      List_AddTail(list,tem);
               }
        }
@@ -154,28 +153,24 @@ int Seat_Srv_RoomInit(seat_list_t list, int roomID, int rowsCount,int colsCount)
 */
 
 void Seat_Srv_SortSeatList(seat_list_t list) {
+       assert(list!=NULL);
        seat_list_t listLeft;
        seat_list_t p;
-       list->prev->next = NULL;
-       listLeft = list->next;
-       list->next= list->prev = list;
-       p = listLeft;
        if(List_IsEmpty(list)){
               return ;
        }
        else{
-              while(1){
-                     if(listLeft == NULL){
-                            return ;
-                     }
-                     else{
-                            Seat_Srv_AddToSoftedList(list,listLeft);
-                            listLeft = listLeft->next;
-                     }   
-              }
+              list->prev->next = NULL;
+              listLeft = list->next;
+              list->next = list->prev = list;
               
+              while(listLeft != NULL){
+                     p = listLeft;
+                     listLeft = listLeft->next;
+                     Seat_Srv_AddToSoftedList(list,p);   
+              } 
        }
-       // 锟诫补锟斤拷锟斤拷锟斤拷
+       return ;
 }
 
 
@@ -187,14 +182,15 @@ void Seat_Srv_SortSeatList(seat_list_t list) {
 
 void Seat_Srv_AddToSoftedList(seat_list_t list, seat_node_t *node) {
        //问题
-
-
-       if(list == NULL){
+       seat_list_t p ;
+       assert(list!=NULL && node!=NULL);
+       if(List_IsEmpty(list)){
               List_AddTail(list,node);
        }
        else{
-              seat_list_t p = list->next;
-              while(!(p!=list&&(p->data.row < node->data.row||(p->data.row == node->data.row&&p->data.column < node->data.column)))){
+              p = list->next;
+              while(p!=list&&(p->data.row < node->data.row||
+                            (p->data.row == node->data.row && p->data.column < node->data.column))){
                      p=p->next;
               }
               List_InsertBefore(p,node);

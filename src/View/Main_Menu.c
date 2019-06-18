@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 #include "../View/Studio_UI.h"
-
+#include "../View/Account_UI.h"
 //ϵͳ���˵� 
 void Main_Menu(void) {
 	char choice;
@@ -56,11 +56,11 @@ void Main_Menu(void) {
 		case 'N':
 		case 'n':
 			SalesAanalysis_UI_MgtEntry();
-			break;
+			break;*/
 		case 'A':
 		case 'a':
 			Account_UI_MgtEntry();
-			break;*/
+			break;
 		}
 	} while ('E' != choice && 'e' != choice);
 }
