@@ -189,8 +189,7 @@ void Seat_Srv_AddToSoftedList(seat_list_t list, seat_node_t *node) {
        }
        else{
               p = list->next;
-              while(p!=list&&(p->data.row < node->data.row||
-                            (p->data.row == node->data.row && p->data.column < node->data.column))){
+              while(p!=list&&(p->data.row < node->data.row||(p->data.row == node->data.row && p->data.column < node->data.column))){
                      p=p->next;
               }
               List_InsertBefore(p,node);
