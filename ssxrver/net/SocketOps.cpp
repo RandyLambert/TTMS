@@ -13,7 +13,7 @@ namespace
 {
 typedef struct sockaddr SA;
 }
-void socketops::bindOrDie(int sockfd, const struct sockaddr_in &addr)
+void socketops::bindOrDie(int sockfd, const struct sockaddr_in& addr)
 {
     if (::bind(sockfd, (struct sockaddr *)&addr, static_cast<socklen_t>(sizeof addr)) < 0)
         LOG_SYSFATAL << "socketops error";
@@ -72,9 +72,9 @@ int socketops::accept(int sockfd, struct sockaddr_in *addr)
     return connfd;
 }
 
-int socketops::connect(int sockfd, const struct sockaddr_in &addr)
+int socketops::connect(int sockfd, const struct sockaddr_in& addr)
 {
-    return ::connect(sockfd, (struct sockaddr *)&addr, static_cast<socklen_t>(sizeof addr));
+    return ::connect(sockfd, (struct sockaddr*)&addr, static_cast<socklen_t>(sizeof addr));
 }
 
 ssize_t socketops::read(int sockfd, void *buf, size_t count)
