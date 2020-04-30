@@ -33,8 +33,8 @@ public:
         { //如果小于，只要缓冲区不等于0，则将部分大小放入缓冲区，但是最后一位不能占，因为可能会放结束符'\0'
             if (avail() > 0)
             {
-                memcpy(cur_, buf, avail() - 1);
-                cur_ += (avail() - 1);
+                memcpy(cur_, buf, static_cast<size_t>(avail()));
+                cur_ += (avail());
             }
         }
     }
