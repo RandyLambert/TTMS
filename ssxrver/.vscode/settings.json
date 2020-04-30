@@ -2,6 +2,7 @@
     "files.associations": {
         "*.tcc": "cpp",
         "bitset": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "system_error": "cpp"
     }
 }
