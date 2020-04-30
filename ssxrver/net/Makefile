@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sunxiaochuan/sunshouxun/WebServer/ssxrver
+CMAKE_SOURCE_DIR = /home/sunxiaochuan/sunshouxun/TTMS/ssxrver
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sunxiaochuan/sunshouxun/WebServer/ssxrver
+CMAKE_BINARY_DIR = /home/sunxiaochuan/sunshouxun/TTMS/ssxrver
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(CMAKE_COMMAND) -E cmake_progress_start /home/sunxiaochuan/sunshouxun/WebServer/ssxrver/CMakeFiles /home/sunxiaochuan/sunshouxun/WebServer/ssxrver/net/CMakeFiles/progress.marks
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f CMakeFiles/Makefile2 net/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sunxiaochuan/sunshouxun/WebServer/ssxrver/CMakeFiles 0
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(CMAKE_COMMAND) -E cmake_progress_start /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/CMakeFiles /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/CMakeFiles/progress.marks
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f CMakeFiles/Makefile2 net/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f CMakeFiles/Makefile2 net/clean
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f CMakeFiles/Makefile2 net/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f CMakeFiles/Makefile2 net/preinstall
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f CMakeFiles/Makefile2 net/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f CMakeFiles/Makefile2 net/preinstall
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f CMakeFiles/Makefile2 net/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 net/CMakeFiles/NetFunctions.dir/rule:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f CMakeFiles/Makefile2 net/CMakeFiles/NetFunctions.dir/rule
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f CMakeFiles/Makefile2 net/CMakeFiles/NetFunctions.dir/rule
 .PHONY : net/CMakeFiles/NetFunctions.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ NetFunctions: net/CMakeFiles/NetFunctions.dir/rule
 
 # fast build rule for target.
 NetFunctions/fast:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/build
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/build
 .PHONY : NetFunctions/fast
 
 Buffer.o: Buffer.cpp.o
@@ -131,7 +131,7 @@ Buffer.o: Buffer.cpp.o
 
 # target to build an object file
 Buffer.cpp.o:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Buffer.cpp.o
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Buffer.cpp.o
 .PHONY : Buffer.cpp.o
 
 Buffer.i: Buffer.cpp.i
@@ -140,7 +140,7 @@ Buffer.i: Buffer.cpp.i
 
 # target to preprocess a source file
 Buffer.cpp.i:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Buffer.cpp.i
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Buffer.cpp.i
 .PHONY : Buffer.cpp.i
 
 Buffer.s: Buffer.cpp.s
@@ -149,7 +149,7 @@ Buffer.s: Buffer.cpp.s
 
 # target to generate assembly for a file
 Buffer.cpp.s:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Buffer.cpp.s
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Buffer.cpp.s
 .PHONY : Buffer.cpp.s
 
 Channel.o: Channel.cpp.o
@@ -158,7 +158,7 @@ Channel.o: Channel.cpp.o
 
 # target to build an object file
 Channel.cpp.o:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Channel.cpp.o
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Channel.cpp.o
 .PHONY : Channel.cpp.o
 
 Channel.i: Channel.cpp.i
@@ -167,7 +167,7 @@ Channel.i: Channel.cpp.i
 
 # target to preprocess a source file
 Channel.cpp.i:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Channel.cpp.i
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Channel.cpp.i
 .PHONY : Channel.cpp.i
 
 Channel.s: Channel.cpp.s
@@ -176,7 +176,7 @@ Channel.s: Channel.cpp.s
 
 # target to generate assembly for a file
 Channel.cpp.s:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Channel.cpp.s
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Channel.cpp.s
 .PHONY : Channel.cpp.s
 
 Epoller.o: Epoller.cpp.o
@@ -185,7 +185,7 @@ Epoller.o: Epoller.cpp.o
 
 # target to build an object file
 Epoller.cpp.o:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Epoller.cpp.o
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Epoller.cpp.o
 .PHONY : Epoller.cpp.o
 
 Epoller.i: Epoller.cpp.i
@@ -194,7 +194,7 @@ Epoller.i: Epoller.cpp.i
 
 # target to preprocess a source file
 Epoller.cpp.i:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Epoller.cpp.i
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Epoller.cpp.i
 .PHONY : Epoller.cpp.i
 
 Epoller.s: Epoller.cpp.s
@@ -203,7 +203,7 @@ Epoller.s: Epoller.cpp.s
 
 # target to generate assembly for a file
 Epoller.cpp.s:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Epoller.cpp.s
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/Epoller.cpp.s
 .PHONY : Epoller.cpp.s
 
 EventLoop.o: EventLoop.cpp.o
@@ -212,7 +212,7 @@ EventLoop.o: EventLoop.cpp.o
 
 # target to build an object file
 EventLoop.cpp.o:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoop.cpp.o
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoop.cpp.o
 .PHONY : EventLoop.cpp.o
 
 EventLoop.i: EventLoop.cpp.i
@@ -221,7 +221,7 @@ EventLoop.i: EventLoop.cpp.i
 
 # target to preprocess a source file
 EventLoop.cpp.i:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoop.cpp.i
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoop.cpp.i
 .PHONY : EventLoop.cpp.i
 
 EventLoop.s: EventLoop.cpp.s
@@ -230,7 +230,7 @@ EventLoop.s: EventLoop.cpp.s
 
 # target to generate assembly for a file
 EventLoop.cpp.s:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoop.cpp.s
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoop.cpp.s
 .PHONY : EventLoop.cpp.s
 
 EventLoopThread.o: EventLoopThread.cpp.o
@@ -239,7 +239,7 @@ EventLoopThread.o: EventLoopThread.cpp.o
 
 # target to build an object file
 EventLoopThread.cpp.o:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThread.cpp.o
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThread.cpp.o
 .PHONY : EventLoopThread.cpp.o
 
 EventLoopThread.i: EventLoopThread.cpp.i
@@ -248,7 +248,7 @@ EventLoopThread.i: EventLoopThread.cpp.i
 
 # target to preprocess a source file
 EventLoopThread.cpp.i:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThread.cpp.i
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThread.cpp.i
 .PHONY : EventLoopThread.cpp.i
 
 EventLoopThread.s: EventLoopThread.cpp.s
@@ -257,7 +257,7 @@ EventLoopThread.s: EventLoopThread.cpp.s
 
 # target to generate assembly for a file
 EventLoopThread.cpp.s:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThread.cpp.s
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThread.cpp.s
 .PHONY : EventLoopThread.cpp.s
 
 EventLoopThreadPool.o: EventLoopThreadPool.cpp.o
@@ -266,7 +266,7 @@ EventLoopThreadPool.o: EventLoopThreadPool.cpp.o
 
 # target to build an object file
 EventLoopThreadPool.cpp.o:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThreadPool.cpp.o
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThreadPool.cpp.o
 .PHONY : EventLoopThreadPool.cpp.o
 
 EventLoopThreadPool.i: EventLoopThreadPool.cpp.i
@@ -275,7 +275,7 @@ EventLoopThreadPool.i: EventLoopThreadPool.cpp.i
 
 # target to preprocess a source file
 EventLoopThreadPool.cpp.i:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThreadPool.cpp.i
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThreadPool.cpp.i
 .PHONY : EventLoopThreadPool.cpp.i
 
 EventLoopThreadPool.s: EventLoopThreadPool.cpp.s
@@ -284,7 +284,7 @@ EventLoopThreadPool.s: EventLoopThreadPool.cpp.s
 
 # target to generate assembly for a file
 EventLoopThreadPool.cpp.s:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThreadPool.cpp.s
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/EventLoopThreadPool.cpp.s
 .PHONY : EventLoopThreadPool.cpp.s
 
 SocketOps.o: SocketOps.cpp.o
@@ -293,7 +293,7 @@ SocketOps.o: SocketOps.cpp.o
 
 # target to build an object file
 SocketOps.cpp.o:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/SocketOps.cpp.o
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/SocketOps.cpp.o
 .PHONY : SocketOps.cpp.o
 
 SocketOps.i: SocketOps.cpp.i
@@ -302,7 +302,7 @@ SocketOps.i: SocketOps.cpp.i
 
 # target to preprocess a source file
 SocketOps.cpp.i:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/SocketOps.cpp.i
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/SocketOps.cpp.i
 .PHONY : SocketOps.cpp.i
 
 SocketOps.s: SocketOps.cpp.s
@@ -311,7 +311,7 @@ SocketOps.s: SocketOps.cpp.s
 
 # target to generate assembly for a file
 SocketOps.cpp.s:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/SocketOps.cpp.s
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/SocketOps.cpp.s
 .PHONY : SocketOps.cpp.s
 
 TcpConnection.o: TcpConnection.cpp.o
@@ -320,7 +320,7 @@ TcpConnection.o: TcpConnection.cpp.o
 
 # target to build an object file
 TcpConnection.cpp.o:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpConnection.cpp.o
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpConnection.cpp.o
 .PHONY : TcpConnection.cpp.o
 
 TcpConnection.i: TcpConnection.cpp.i
@@ -329,7 +329,7 @@ TcpConnection.i: TcpConnection.cpp.i
 
 # target to preprocess a source file
 TcpConnection.cpp.i:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpConnection.cpp.i
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpConnection.cpp.i
 .PHONY : TcpConnection.cpp.i
 
 TcpConnection.s: TcpConnection.cpp.s
@@ -338,7 +338,7 @@ TcpConnection.s: TcpConnection.cpp.s
 
 # target to generate assembly for a file
 TcpConnection.cpp.s:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpConnection.cpp.s
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpConnection.cpp.s
 .PHONY : TcpConnection.cpp.s
 
 TcpServer.o: TcpServer.cpp.o
@@ -347,7 +347,7 @@ TcpServer.o: TcpServer.cpp.o
 
 # target to build an object file
 TcpServer.cpp.o:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpServer.cpp.o
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpServer.cpp.o
 .PHONY : TcpServer.cpp.o
 
 TcpServer.i: TcpServer.cpp.i
@@ -356,7 +356,7 @@ TcpServer.i: TcpServer.cpp.i
 
 # target to preprocess a source file
 TcpServer.cpp.i:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpServer.cpp.i
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpServer.cpp.i
 .PHONY : TcpServer.cpp.i
 
 TcpServer.s: TcpServer.cpp.s
@@ -365,7 +365,7 @@ TcpServer.s: TcpServer.cpp.s
 
 # target to generate assembly for a file
 TcpServer.cpp.s:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpServer.cpp.s
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(MAKE) -f net/CMakeFiles/NetFunctions.dir/build.make net/CMakeFiles/NetFunctions.dir/TcpServer.cpp.s
 .PHONY : TcpServer.cpp.s
 
 # Help Target
@@ -415,6 +415,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/sunxiaochuan/sunshouxun/WebServer/ssxrver && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/sunxiaochuan/sunshouxun/TTMS/ssxrver && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

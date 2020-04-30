@@ -1,4 +1,4 @@
-# Install script for directory: /home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base
+# Install script for directory: /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

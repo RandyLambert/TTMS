@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base/LogStream.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/LogStream.h
 string
 -
 cstring
@@ -14,19 +14,25 @@ cstring
 cassert
 -
 noncopyable.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base/noncopyable.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/noncopyable.h
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base/Logging.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/Logging.h
 LogStream.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base/LogStream.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/LogStream.h
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base/noncopyable.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/noncopyable.h
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpContext.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpContext.cpp
+HttpContext.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpContext.h
+../net/Buffer.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/Buffer.h
+
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpContext.h
 HttpRequest.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpRequest.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpRequest.h
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpRequest.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpRequest.h
 map
 -
 assert.h
@@ -36,39 +42,41 @@ cstdio
 string
 -
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpResponse.cpp
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpResponse.cpp
 stdio.h
 -
 HttpResponse.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpResponse.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpResponse.h
 ../net/Buffer.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/net/Buffer.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/Buffer.h
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpResponse.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpResponse.h
 map
 -
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpServer.cpp
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpServer.cpp
 functional
 -
 HttpServer.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpServer.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpServer.h
 ../base/Logging.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base/Logging.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/Logging.h
 HttpContext.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpContext.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpContext.h
 HttpRequest.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpRequest.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpRequest.h
 HttpResponse.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpResponse.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpResponse.h
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/http/HttpServer.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/http/HttpServer.h
 ../net/TcpServer.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/net/TcpServer.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/TcpServer.h
 ../base/noncopyable.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base/noncopyable.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/noncopyable.h
+iostream
+-
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/net/Buffer.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/Buffer.h
 cstring
 -
 vector
@@ -80,15 +88,15 @@ algorithm
 string
 -
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/net/Channel.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/Channel.h
 functional
 -
 memory
 -
 ../base/noncopyable.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base/noncopyable.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/noncopyable.h
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/net/TcpConnection.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/TcpConnection.h
 memory
 -
 boost/any.hpp
@@ -98,11 +106,11 @@ netinet/in.h
 functional
 -
 Buffer.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/net/Buffer.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/Buffer.h
 ../base/noncopyable.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base/noncopyable.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/noncopyable.h
 
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/net/TcpServer.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/TcpServer.h
 map
 -
 memory
@@ -112,9 +120,9 @@ functional
 atomic
 -
 ../base/noncopyable.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/base/noncopyable.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/noncopyable.h
 TcpConnection.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/net/TcpConnection.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/TcpConnection.h
 Channel.h
-/home/sunxiaochuan/sunshouxun/WebServer/ssxrver/net/Channel.h
+/home/sunxiaochuan/sunshouxun/TTMS/ssxrver/net/Channel.h
 
