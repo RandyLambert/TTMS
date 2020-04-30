@@ -21,6 +21,20 @@ base/CMakeFiles/BaseFunctions.dir/Logging.cpp.o
  /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/Logging.cpp
  /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/Logging.h
  /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/noncopyable.h
+base/CMakeFiles/BaseFunctions.dir/MySQL.cpp.o
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/LogStream.h
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/Logging.h
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/MySQL.cpp
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/MySQL.h
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/MySQLsOps.h
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/noncopyable.h
+base/CMakeFiles/BaseFunctions.dir/MySQLsOps.cpp.o
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/LogStream.h
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/Logging.h
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/MySQL.h
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/MySQLsOps.cpp
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/MySQLsOps.h
+ /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/noncopyable.h
 base/CMakeFiles/BaseFunctions.dir/Thread.cpp.o
  /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/Condition.h
  /home/sunxiaochuan/sunshouxun/TTMS/ssxrver/base/CountDownLatch.h
