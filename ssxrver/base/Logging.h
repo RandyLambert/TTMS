@@ -113,6 +113,11 @@ inline Logger::LogLevel Logger::logLevel() //当前级别返回的是logLevel
 
 const char *strerror_tl(int savedErrno);
 
+class LogAppender
+{
+
+};
+
 } // namespace ssxrver
 
 #endif
