@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++17 -I/usr/include/mysql -g -Wall -Wno-unused-variable -Wshadow -Werror -Wold-style-cast -L/usr/lib/mysql -lmysqlclient -pthread -g   CMakeFiles/ssxrver.dir/main.cpp.o  -o ssxrver net/libNetFunctions.a base/libBaseFunctions.a net/libNetFunctions.a http/libHttpFunctions.a 
