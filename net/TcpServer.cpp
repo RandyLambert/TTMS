@@ -31,7 +31,6 @@ TcpServer::TcpServer(EventLoop *loop,
 TcpServer::~TcpServer()
 {
     loop_->assertInLoopThread();
-    LOG_TRACE << "TcpServer::~TcpServer destructing";
 
     for (auto &item : connections_)
     {

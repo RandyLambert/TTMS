@@ -74,7 +74,6 @@ void EventLoop::loop()
     assertInLoopThread();
     looping_ = true;
     quit_ = false;
-    LOG_TRACE << "EventLoop " << this << "start looping";
 
     while (!quit_)
     {
@@ -89,7 +88,6 @@ void EventLoop::loop()
         doPendingFunctors(); //让io线程也可以执行一些小的任务
     }
 
-    LOG_TRACE << "EventLoop " << this << " stop looping";
     looping_ = false;
 }
 

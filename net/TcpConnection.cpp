@@ -266,8 +266,6 @@ void TcpConnection::connectEstablished()
     setState(kConnected);
     channel_->tie(shared_from_this());
     channel_->enableReading();
-    LOG_TRACE << sockfd_ << " is "
-              << (connected() ? "UP" : "DOWN");
     connectionCallback_(shared_from_this());
 }
 
@@ -278,8 +276,6 @@ void TcpConnection::connectDestroyed()
     {
         setState(kDisconnected);
         channel_->disableAll();
-        LOG_TRACE << sockfd_ << " is "
-                  << (connected() ? "UP" : "DOWN");
     }
     channel_->remove();
 }
@@ -336,7 +332,7 @@ void TcpConnection::handleWrite()
     }
     else
     {
-        LOG_TRACE << "Connection fd = " << channel_->fd()
+        LOG_DEBUG << "Connection fd = " << channel_->fd()
                   << " is down, no more writing";
     }
 }
@@ -344,7 +340,6 @@ void TcpConnection::handleWrite()
 void TcpConnection::handleClose()
 {
     loop_->assertInLoopThread();
-    LOG_TRACE << "fd = " << channel_->fd();
     assert(state_ == kConnected || state_ == kDisconnecting);
     // we don't close fd, leave it to dtor, so we can find leaks easily.
     setState(kDisconnected);

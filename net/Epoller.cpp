@@ -39,7 +39,6 @@ void Epoller::poll(ChannelList *activeChannels)
     int saveErrno = errno;
     if (numEvents > 0)
     {
-        LOG_TRACE << numEvents << "epoll open";
         fillActiveChannels(numEvents, activeChannels);
         if (static_cast<size_t>(numEvents) == events_.size()) //随着关注的事件个数逐渐增加
         {
@@ -70,7 +69,6 @@ void Epoller::fillActiveChannels(int numEvents,                     //返回活�
 void Epoller::updateChannel(Channel *channel)
 {
     loop_->assertInLoopThread();
-    LOG_TRACE << "fd = " << channel->fd() << " event = " << channel->events();
     const int status_ = channel->status();
     if (status_ == kNew || status_ == kDeleted)
     {
@@ -98,7 +96,6 @@ void Epoller::removeChannel(Channel *channel)
 {
     loop_->assertInLoopThread();
     int fd = channel->fd();
-    LOG_TRACE << "fd = " << fd;
     int status_ = channel->status();
     if (channels_.erase(fd) != 1)
         LOG_SYSFATAL << "erase channel";

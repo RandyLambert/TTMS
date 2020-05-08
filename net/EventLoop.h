@@ -8,7 +8,7 @@
 #include "../base/Mutex.h"
 #include "../base/CurrentThread.h"
 #include "../base/Thread.h"
-#include "../base/MySQL.h"
+#include "MySQL.h"
 namespace ssxrver
 {
 namespace net

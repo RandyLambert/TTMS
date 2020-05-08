@@ -28,7 +28,7 @@ Channel::~Channel()
 {
     assert(!eventHandling_);
     assert(!addedToLoop_);
-    /* close(fd_); */
+    close(fd_);
 }
 
 void Channel::tie(const std::shared_ptr<void> &obj)
@@ -70,7 +70,6 @@ void Channel::handleEvent()
 void Channel::handleEventWithGuard()
 {
     eventHandling_ = true;
-    LOG_TRACE << reventsToString();
     if ((revents_ & EPOLLHUP) && !(revents_ & EPOLLIN)) //判断一下返回的事件，进行处理
     {
         if (logHup_)
