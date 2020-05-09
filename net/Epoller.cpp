@@ -17,7 +17,7 @@ enum
 Epoller::Epoller(EventLoop *loop)
     : epollfd_(::epoll_create1(EPOLL_CLOEXEC)),
       events_(kInitEventListSize),
-      loop_(loop)
+      ownerLoop_(loop)
 {
     if (epollfd_ < 0)
     {
@@ -35,7 +35,7 @@ void Epoller::poll(ChannelList *activeChannels)
     int numEvents = ::epoll_wait(epollfd_,
                                  &*events_.begin(), //事件动态数组，提前设好大小
                                  static_cast<int>(events_.size()),
-                                 timeoutMs);
+                                 -1);
     int saveErrno = errno;
     if (numEvents > 0)
     {
@@ -68,7 +68,7 @@ void Epoller::fillActiveChannels(int numEvents,                     //返回活�
 
 void Epoller::updateChannel(Channel *channel)
 {
-    loop_->assertInLoopThread();
+    ownerLoop_->assertInLoopThread();
     const int status_ = channel->status();
     if (status_ == kNew || status_ == kDeleted)
     {
@@ -94,7 +94,7 @@ void Epoller::updateChannel(Channel *channel)
 
 void Epoller::removeChannel(Channel *channel)
 {
-    loop_->assertInLoopThread();
+    ownerLoop_->assertInLoopThread();
     int fd = channel->fd();
     int status_ = channel->status();
     if (channels_.erase(fd) != 1)

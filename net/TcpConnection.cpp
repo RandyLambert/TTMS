@@ -35,12 +35,12 @@ TcpConnection::TcpConnection(EventLoop *loop,
     channel_->setErrorCallback(
         std::bind(&TcpConnection::handleError, this));
     socketops::setKeepAlive(sockfd_, true);
-    LOG_DEBUG << "TcpConnection::ctor at" << this << "fd = " << sockfd_;
+    LOG_INFO << "TcpConnection::ctor at" << this << "fd = " << sockfd_;
 }
 
 TcpConnection::~TcpConnection()
 {
-    LOG_DEBUG << "TcpConnection::dtor at" << this << "fd = " << sockfd_;
+    LOG_INFO << "TcpConnection::dtor at" << this << "fd = " << sockfd_;
     assert(state_ == kDisconnected);
 }
 
@@ -291,6 +291,7 @@ void TcpConnection::handleRead()
     }
     else if (n == 0)
     {
+        LOG_INFO << "HHH" << channel_->fd() << saveErrno;
         handleClose();
     }
     else
@@ -332,8 +333,8 @@ void TcpConnection::handleWrite()
     }
     else
     {
-        LOG_DEBUG << "Connection fd = " << channel_->fd()
-                  << " is down, no more writing";
+        LOG_INFO << "Connection fd = " << channel_->fd()
+                 << " is down, no more writing";
     }
 }
 

@@ -29,6 +29,7 @@ Channel::~Channel()
     assert(!eventHandling_);
     assert(!addedToLoop_);
     close(fd_);
+    LOG_INFO << "HHHHHHHHHHHHHHHHHHH";
 }
 
 void Channel::tie(const std::shared_ptr<void> &obj)
@@ -72,12 +73,15 @@ void Channel::handleEventWithGuard()
     eventHandling_ = true;
     if ((revents_ & EPOLLHUP) && !(revents_ & EPOLLIN)) //判断一下返回的事件，进行处理
     {
+        LOG_INFO << "Channel::handle_event() EPOLLHUP";
         if (logHup_)
         {
             LOG_WARN << "Channel::handle_event() EPOLLHUP";
         }
         if (closeCallback_)
+        {
             closeCallback_();
+        }
     }
     if (revents_ & EPOLLERR)
         if (errorCallback_)
@@ -89,24 +93,4 @@ void Channel::handleEventWithGuard()
         if (writeCallback_)
             writeCallback_();
     eventHandling_ = false;
-}
-
-std::string Channel::reventsToString() const
-{ //调试，发生了什么事件
-    std::ostringstream oss;
-    oss << fd_ << ": ";
-    if (revents_ & EPOLLIN)
-        oss << "IN ";
-    if (revents_ & EPOLLPRI)
-        oss << "PRI ";
-    if (revents_ & EPOLLOUT)
-        oss << "OUT ";
-    if (revents_ & EPOLLHUP)
-        oss << "HUP ";
-    if (revents_ & EPOLLRDHUP)
-        oss << "RDHUP ";
-    if (revents_ & EPOLLERR)
-        oss << "ERR ";
-
-    return oss.str().c_str();
 }

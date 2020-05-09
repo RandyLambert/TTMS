@@ -1,7 +1,7 @@
 #include <functional>
 #include "HttpServer.h"
 #include "../base/Logging.h"
-#include "../base/MySQL.h"
+#include "../net/MySQL.h"
 #include "HttpContext.h"
 #include "HttpRequest.h"
 #include "HttpResponse.h"
@@ -69,6 +69,7 @@ void HttpServer::onRequest(const TcpConnectionPtr &conn, const HttpRequest &req)
 {
     const string &connection = req.getHeader("Connection");
     MySQL *mysql = conn->getLoop()->getMySQL();
+    // MySQL *mysql = nullptr;
     bool close;
     if (connection == "close")
         close = true;

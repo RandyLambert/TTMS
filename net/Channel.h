@@ -71,7 +71,6 @@ public:
 
     int status() { return status_; }
     void set_status(int idx) { status_ = idx; }
-    std::string reventsToString() const;
 
     void doNotLogHup() { logHup_ = false; }
 

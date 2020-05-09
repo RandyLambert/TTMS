@@ -23,7 +23,6 @@ public:
 
 private:
     static const int kInitEventListSize = 16;
-    static const int timeoutMs = -1;
 
     void fillActiveChannels(int numEvents, ChannelList *activeChannels) const;
     void update(int operation, Channel *channel);
@@ -33,7 +32,7 @@ private:
     int epollfd_;
     typedef std::vector<struct epoll_event> EventList;
     EventList events_; //实际返回的事件列表
-    EventLoop *loop_;
+    EventLoop *ownerLoop_;
 };
 
 } // namespace net

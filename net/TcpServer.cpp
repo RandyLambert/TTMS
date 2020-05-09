@@ -31,7 +31,6 @@ TcpServer::TcpServer(EventLoop *loop,
 TcpServer::~TcpServer()
 {
     loop_->assertInLoopThread();
-
     for (auto &item : connections_)
     {
         TcpConnectionPtr conn(item.second);
@@ -104,7 +103,7 @@ void TcpServer::newConnection(int sockfd)
     conn->setWriteCompleteCallback(writeCompleteCallback_);
     conn->setConnectionCallback(connectionCallback_);
     conn->setCloseCallback(
-        std::bind(&TcpServer::removeConnectionInLoop, this, std::placeholders::_1));
+        std::bind(&TcpServer::removeConnection, this, std::placeholders::_1));
     ioLoop->runInLoop(std::bind(&TcpConnection::connectEstablished, conn));
 }
 

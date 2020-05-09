@@ -83,6 +83,7 @@ void EventLoop::loop()
         for (Channel *channel : activeChannels_)
         {
             channel->handleEvent();
+            LOG_INFO << "handleEvent";
         }
         eventHandling_ = false;
         doPendingFunctors(); //让io线程也可以执行一些小的任务
