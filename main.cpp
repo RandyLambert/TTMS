@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "http/echoServertest.h"
 #include "http/HttpServer.h"
 #include "http/HttpRequest.h"
 #include "http/HttpResponse.h"
@@ -11,13 +12,18 @@ using namespace ssxrver;
 using namespace ssxrver::net;
 bool flag = true;
 
-void message(const HttpRequest &req, HttpResponse *resp, MySQL *mysql)
+void message(const HttpRequest &req, HttpResponse *resp /*,  MySQL *mysql*/)
 {
     if (!flag)
     {
+        int i = 0;
         const std::map<string, string> &headers = req.headers();
         for (const auto &x : headers)
-            std::cout << x.first << " " << x.second << std::endl;
+        {
+            i++;
+            if (i == 1)
+                std::cout << x.first << " " << x.second << std::endl;
+        }
     }
 
     if (req.path() == "/")
@@ -41,8 +47,6 @@ void message(const HttpRequest &req, HttpResponse *resp, MySQL *mysql)
     }
 }
 
-
-
 ssxrver::base::AsyncLogThread *g_asyncLog = NULL;
 void asyncOutput(const char *msg, int len)
 {
@@ -64,7 +68,9 @@ int main(int argv, char *argc[])
     serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
     int threads = 2;
     EventLoop loop;
+    /* loop.setname("大循环"); */
     HttpServer server(&loop, serv_addr);
+    /* EchoServer server(&loop, serv_addr); */
     server.setHttpCallback(message);
     server.setThreadNum(threads);
     server.start();
