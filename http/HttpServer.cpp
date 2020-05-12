@@ -15,7 +15,7 @@ namespace net
 namespace detail
 {
 
-void defaultHttpCallback(const HttpRequest &, HttpResponse *resp, const MySQL *)
+void defaultHttpCallback(const HttpRequest &, HttpResponse *resp /*, const MySQL */)
 {
     resp->setStatusCode(HttpResponse::k404NotFound);
     resp->setStatusMessage("Not Found");
@@ -33,7 +33,7 @@ HttpServer::HttpServer(EventLoop *loop,
 {
     server_.setMessageCallback(bind(&HttpServer::onMessage, this, std::placeholders::_1, std::placeholders::_2));
     server_.setConnectionCallback(bind(&HttpServer::onConnection, this, std::placeholders::_1));
-    server_.setThreadInitCallback(bind(&HttpServer::onThreadInit, this, std::placeholders::_1));
+    /* server_.setThreadInitCallback(bind(&HttpServer::onThreadInit, this, std::placeholders::_1)); */
 }
 
 void HttpServer::start()
@@ -68,7 +68,7 @@ void HttpServer::onMessage(const TcpConnectionPtr &conn,
 void HttpServer::onRequest(const TcpConnectionPtr &conn, const HttpRequest &req)
 {
     const string &connection = req.getHeader("Connection");
-    MySQL *mysql = conn->getLoop()->getMySQL();
+    // MySQL *mysql = conn->getLoop()->getMySQL();
     // MySQL *mysql = nullptr;
     bool close;
     if (connection == "close")
@@ -76,7 +76,7 @@ void HttpServer::onRequest(const TcpConnectionPtr &conn, const HttpRequest &req)
     else
         close = false;
     HttpResponse response(close);
-    httpCallback_(req, &response, mysql);
+    httpCallback_(req, &response /*, mysql*/);
     Buffer buf;
     response.appendToBuffer(&buf);  //将对象转化为一个字符串到buf中
     conn->send(&buf);               //将缓冲区发送到客户端
