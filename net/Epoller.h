@@ -2,6 +2,7 @@
 #define SSXRVER_NET_EPOLLER_H
 #include <vector>
 #include <map>
+#include <string>
 #include "../base/noncopyable.h"
 #include "EventLoop.h"
 
@@ -11,6 +12,7 @@ namespace ssxrver
 namespace net
 {
 class Channel;
+class TcpConnection;
 class Epoller : noncopyable
 {
 public:
@@ -27,12 +29,17 @@ private:
     void fillActiveChannels(int numEvents, ChannelList *activeChannels) const;
     void update(int operation, Channel *channel);
 
-    typedef std::map<int, Channel *> ChannelMap; //fd和事件指针
-    ChannelMap channels_;                        //监听检测通道
+    typedef std::map<int, Channel *> ChannelMap;                      //fd和事件指针
+    typedef std::map<int, std::shared_ptr<TcpConnection>> TcpConnMap; //TcpConnectionmap
+    ChannelMap channels_;                                             //监听检测通道
+    TcpConnMap connections_;
     int epollfd_;
     typedef std::vector<struct epoll_event> EventList;
     EventList events_; //实际返回的事件列表
     EventLoop *ownerLoop_;
+
+/* public: */
+/*     std::string name_; */
 };
 
 } // namespace net

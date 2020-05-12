@@ -39,6 +39,7 @@ void Epoller::poll(ChannelList *activeChannels)
     int saveErrno = errno;
     if (numEvents > 0)
     {
+        // LOG_INFO << numEvents << "events happned";
         fillActiveChannels(numEvents, activeChannels);
         if (static_cast<size_t>(numEvents) == events_.size()) //随着关注的事件个数逐渐增加
         {
@@ -74,7 +75,12 @@ void Epoller::updateChannel(Channel *channel)
     {
         int fd = channel->fd(); //如果是新的通道，取他的fd值
         if (status_ == kNew)
+        {
             channels_[fd] = channel; //新的，就加到关注队列
+            /* connections_.push_back(make_pair(fd,channel->getTie())); */
+            connections_[fd] = channel->getTie();
+
+        }
         channel->set_status(kAdded);
         update(EPOLL_CTL_ADD, channel);
     }
@@ -97,8 +103,11 @@ void Epoller::removeChannel(Channel *channel)
     ownerLoop_->assertInLoopThread();
     int fd = channel->fd();
     int status_ = channel->status();
-    if (channels_.erase(fd) != 1)
-        LOG_SYSFATAL << "erase channel";
+    /* LOG_INFO << channel->name_; */
+    if (channels_.erase(fd) != true)
+        LOG_FATAL << "erase channel";
+    if (connections_.erase(fd) != true)
+        LOG_FATAL << "erase connections_";
 
     if (status_ == kAdded)
         update(EPOLL_CTL_DEL, channel);
