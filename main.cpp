@@ -10,19 +10,16 @@
 #include "base/AsyncLogThread.h"
 using namespace ssxrver;
 using namespace ssxrver::net;
-bool flag = true;
+bool flag = false;
 
 void message(const HttpRequest &req, HttpResponse *resp /*,  MySQL *mysql*/)
 {
     if (!flag)
     {
-        int i = 0;
         const std::map<string, string> &headers = req.headers();
         for (const auto &x : headers)
         {
-            i++;
-            if (i == 1)
-                std::cout << x.first << " " << x.second << std::endl;
+            std::cout << x.first << " " << x.second << std::endl;
         }
     }
 
