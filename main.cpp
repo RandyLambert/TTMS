@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+//#include <boost/lexical_cast.hpp>
 #include "http/echoServertest.h"
 #include "http/HttpServer.h"
 #include "http/HttpRequest.h"
@@ -16,6 +17,7 @@ bool flag = false;
 void message(const HttpRequest &req, HttpResponse *resp, MySQLsOps *mysql)
 {
     CJsonObject obj1;
+    obj1 = req.body();
     if (!flag)
     {
         const std::map<string, string> &headers = req.headers();
@@ -24,18 +26,19 @@ void message(const HttpRequest &req, HttpResponse *resp, MySQLsOps *mysql)
             std::cout << x.first << " " << x.second << std::endl;
         }
         /* std::cout << req.body() << std::endl; */
-        obj1 = req.body();
         /* std::cout << obj1.ToFormattedString() << std::endl; */
     }
 
     if (req.path() == "/")
     {
-        resp->setStatusCode(HttpResponse::k2000k);
-        resp->setStatusMessage("OK");
-        resp->setContentType("text/html");
-        resp->addHeader("Server", "ssxrver");
-        resp->setBody("<html><head><title>This is title</title></head>"
-                      "<body><h1>Hello World</h1></body></html>");
+        int x = atoi(req.query().c_str());
+        resp->setStatusCode(x);
+        // resp->setStatusCode(HttpResponse::k2000k);
+        // resp->setStatusMessage("OK");
+        // resp->setContentType("text/html");
+        // resp->addHeader("Server", "ssxrver");
+        // resp->setBody("<html><head><title>This is title</title></head>"
+        //               "<body><h1>Hello World</h1></body></html>");
 
         /****************************登录*/
         /* CJsonObject obj1; */
@@ -52,7 +55,6 @@ void message(const HttpRequest &req, HttpResponse *resp, MySQLsOps *mysql)
         /* obj1["data"].Add("userName", "'管理员'"); */
         /* obj1["data"].Add("passWord", "'123456'"); */
         /* std::cout << obj1.ToString() << std::endl; */
-        int x = MySQLsOps::QUERYUSER;
         CJsonObject reback;
         if (x > MySQLsOps::MIN && x < MySQLsOps::MID)
         {
@@ -81,6 +83,7 @@ void message(const HttpRequest &req, HttpResponse *resp, MySQLsOps *mysql)
             }
         }
         std::cout << reback.ToFormattedString() << std::endl;
+        resp->setBody(reback.ToString());
     }
 }
 

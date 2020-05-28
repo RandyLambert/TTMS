@@ -25,8 +25,9 @@ bool HttpContext::processRequestLine(const char *begin, const char *end)
             {
                 request_.setPath(start, space); //解析path
             }
-            start = space + 1;
-            succeed = end - start == 8 && std::equal(start, end, "HTTP/1.1");
+            succeed = true;
+            // start = space + 1;
+            // succeed = end - start == 8 && std::equal(start, end, "HTTP/1.1");
         }
     }
     return succeed;
@@ -47,7 +48,12 @@ bool HttpContext::parseRequest(Buffer *buf)
                 if (ok)
                 {
                     buf->retrieveUntil(crlf + 2); //将请求行从buf中取回，包括\r\n，所以要+2
-                    receiveRequestLine();         //httpcontext将状态改为kexpectheaders
+                    if (request_.method() == HttpRequest::kGet)
+                    {
+                        receiveBody();
+                        hasMore = !gotAll();
+                    }
+                    receiveRequestLine(); //httpcontext将状态改为kexpectheaders
                 }
                 else
                 {
