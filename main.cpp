@@ -13,8 +13,9 @@ using namespace ssxrver;
 using namespace ssxrver::net;
 bool flag = false;
 
-void message(const HttpRequest &req, HttpResponse *resp ,  MySQLsOps *mysql)
+void message(const HttpRequest &req, HttpResponse *resp, MySQLsOps *mysql)
 {
+    CJsonObject obj1;
     if (!flag)
     {
         const std::map<string, string> &headers = req.headers();
@@ -22,6 +23,9 @@ void message(const HttpRequest &req, HttpResponse *resp ,  MySQLsOps *mysql)
         {
             std::cout << x.first << " " << x.second << std::endl;
         }
+        /* std::cout << req.body() << std::endl; */
+        obj1 = req.body();
+        /* std::cout << obj1.ToFormattedString() << std::endl; */
     }
 
     if (req.path() == "/")
@@ -33,52 +37,50 @@ void message(const HttpRequest &req, HttpResponse *resp ,  MySQLsOps *mysql)
         resp->setBody("<html><head><title>This is title</title></head>"
                       "<body><h1>Hello World</h1></body></html>");
 
-
-        CJsonObject obj1;
         /****************************登录*/
-        obj1.AddEmptySubArray("what");
-        obj1["what"].Add("*");
+        /* CJsonObject obj1; */
+        /* obj1.AddEmptySubArray("what"); */
+        /* obj1["what"].Add("*"); */
         /* obj1["what"].Add("userName"); */
         /* obj1["what"].Add("PassWord"); */
         /* obj1["what"].Add("sex"); */
-        obj1.AddEmptySubArray("op");
-        obj1["op"].Add("=");
-        obj1["op"].Add("=");
-        obj1.Add("tableName","user");
-        obj1.AddEmptySubObject("data");
-        obj1["data"].Add("userName","'管理员'");
-        obj1["data"].Add("passWord","'123456'");
-        std::cout<<obj1.ToFormattedString()<<std::endl;
+        /* obj1.AddEmptySubArray("op"); */
+        /* obj1["op"].Add("="); */
+        /* obj1["op"].Add("="); */
+        /* obj1.Add("tableName", "user"); */
+        /* obj1.AddEmptySubObject("data"); */
+        /* obj1["data"].Add("userName", "'管理员'"); */
+        /* obj1["data"].Add("passWord", "'123456'"); */
+        /* std::cout << obj1.ToString() << std::endl; */
         int x = MySQLsOps::QUERYUSER;
         CJsonObject reback;
         if (x > MySQLsOps::MIN && x < MySQLsOps::MID)
         {
-            if(mysql->queryNoResult(x, obj1) == -1)
+            if (mysql->queryNoResult(x, obj1) == -1)
             {
-                reback.Add("state",400);
-                reback.Add("message","传递信息");
+                reback.Add("state", 400);
+                reback.Add("message", "传递信息");
             }
             else
             {
-                reback.Add("state",200);
-                reback.Add("message","传递信息");
+                reback.Add("state", 200);
+                reback.Add("message", "传递信息");
             }
         }
         else if (x > MySQLsOps::MID && x < MySQLsOps::MAX)
         {
-            if(mysql->queryHasResult(x, obj1, reback) == -1)
+            if (mysql->queryHasResult(x, obj1, reback) == -1)
             {
-                reback.Add("state",400);
-                reback.Add("message","传递信息");
+                reback.Add("state", 400);
+                reback.Add("message", "传递信息");
             }
             else
             {
-                reback.Add("state",200);
-                reback.Add("message","传递信息");
+                reback.Add("state", 200);
+                reback.Add("message", "传递信息");
             }
         }
-        std::cout<<reback.ToFormattedString()<<std::endl;
-
+        std::cout << reback.ToFormattedString() << std::endl;
     }
 }
 
