@@ -19,18 +19,13 @@ public:
         k404NotFound = 404         //请求的网页不存在
     };
 
-    explicit HttpResponse(bool close)
-        // : statusCode_(kUnknown),
-        : statusCode_(0),
-          closeConnection_(close)
+    explicit HttpResponse()
+        : statusCode_(0)
     {
     }
 
-    // void setStatusCode(HttpStatus code) { statusCode_ = code; }
     void setStatusCode(int code) { statusCode_ = code; }
     void setStatusMessage(const string &message) { statusMessage_ = message; }
-    void setCloseConnection(bool on) { closeConnection_ = on; }
-    bool closeConnection() const { return closeConnection_; }
     //设置文档的媒体类型
     void setContentType(const string &contentType) { addHeader("Content-Type", contentType); }
     void addHeader(const string &key, const string &value) { headers_[key] = value; }
@@ -38,10 +33,8 @@ public:
     void appendToBuffer(Buffer *output) const; //将httpresponse添加到buffer
 private:
     std::map<string, string> headers_; //header列表
-    // HttpStatus statusCode_;            //状态响应码
     int statusCode_;       //状态响应码
     string statusMessage_; //状态响应码对应的文本信息
-    bool closeConnection_; //是否关闭连接
     string body_;          //实体
 };
 

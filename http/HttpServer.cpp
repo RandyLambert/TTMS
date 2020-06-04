@@ -19,7 +19,6 @@ void defaultHttpCallback(const HttpRequest &, HttpResponse *resp, const MySQLsOp
 {
     resp->setStatusCode(HttpResponse::k404NotFound);
     resp->setStatusMessage("Not Found");
-    resp->setCloseConnection(true);
 }
 
 } // namespace detail
@@ -54,7 +53,6 @@ void HttpServer::onMessage(const TcpConnectionPtr &conn,
     HttpContext *context = boost::any_cast<HttpContext>(conn->getMutableContext()); //获取的是可以改变的
     if (!context->parseRequest(buf))                                                //获取请求包，更好的做法是让parserequest作为httpcontext的成员函数
     {
-        // conn->send("HTTP/1.1 400 Bad Request\r\n\r\n"); //请求失败
         conn->send("REQNUM -1 \r\nConntent-Length: 21\r\n\r\n{\"400\":\"Bad Request\"}"); //客户端请求失败
         conn->shutdown();
     }
@@ -68,18 +66,10 @@ void HttpServer::onMessage(const TcpConnectionPtr &conn,
 
 void HttpServer::onRequest(const TcpConnectionPtr &conn, const HttpRequest &req)
 {
-    const string &connection = req.getHeader("Connection");
     MySQLsOps *mysql = conn->getLoop()->getMySQL();
-    bool close;
-    if (connection == "close")
-        close = true;
-    else
-        close = false;
-    HttpResponse response(close);
+    HttpResponse response;
     httpCallback_(req, &response, mysql);
     Buffer buf;
     response.appendToBuffer(&buf); //将对象转化为一个字符串到buf中
     conn->send(&buf);              //将缓冲区发送到客户端
-    // if (response.closeConnection()) //如果需要关闭，短连接
-    //     conn->shutdown();
 }

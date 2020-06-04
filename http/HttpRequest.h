@@ -76,7 +76,7 @@ public:
     void setQuery(const char *start, const char *end) { query_.assign(start, end); }
     const string &query() const { return query_; }
     void setBodySize(int bodysize) { bodysize_ = bodysize; }
-    const size_t bodySize() const { return bodysize_; }
+    size_t bodySize() const { return bodysize_; }
     void addBody(const char *start, const char *end) { body_.append(start, end); }
     const string &body() const { return body_; }
     void addHeader(const char *start, const char *colon, const char *end)

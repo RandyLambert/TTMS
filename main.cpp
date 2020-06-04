@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-//#include <boost/lexical_cast.hpp>
-#include "http/echoServertest.h"
+/* #include "http/echoServertest.h" */
 #include "http/HttpServer.h"
 #include "http/HttpRequest.h"
 #include "http/HttpResponse.h"
@@ -33,28 +32,6 @@ void message(const HttpRequest &req, HttpResponse *resp, MySQLsOps *mysql)
     {
         int x = atoi(req.query().c_str());
         resp->setStatusCode(x);
-        // resp->setStatusCode(HttpResponse::k2000k);
-        // resp->setStatusMessage("OK");
-        // resp->setContentType("text/html");
-        // resp->addHeader("Server", "ssxrver");
-        // resp->setBody("<html><head><title>This is title</title></head>"
-        //               "<body><h1>Hello World</h1></body></html>");
-
-        /****************************登录*/
-        /* CJsonObject obj1; */
-        /* obj1.AddEmptySubArray("what"); */
-        /* obj1["what"].Add("*"); */
-        /* obj1["what"].Add("userName"); */
-        /* obj1["what"].Add("PassWord"); */
-        /* obj1["what"].Add("sex"); */
-        /* obj1.AddEmptySubArray("op"); */
-        /* obj1["op"].Add("="); */
-        /* obj1["op"].Add("="); */
-        /* obj1.Add("tableName", "user"); */
-        /* obj1.AddEmptySubObject("data"); */
-        /* obj1["data"].Add("userName", "'管理员'"); */
-        /* obj1["data"].Add("passWord", "'123456'"); */
-        /* std::cout << obj1.ToString() << std::endl; */
         CJsonObject reback;
         if (x > MySQLsOps::MIN && x < MySQLsOps::MID)
         {
@@ -110,7 +87,6 @@ int main(int argv, char *argc[])
     EventLoop loop;
     /* loop.setname("大循环"); */
     HttpServer server(&loop, serv_addr);
-    /* EchoServer server(&loop, serv_addr); */
     server.setHttpCallback(message);
     server.setThreadNum(threads);
     server.start();
