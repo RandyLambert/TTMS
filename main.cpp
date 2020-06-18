@@ -73,11 +73,11 @@ void asyncOutput(const char *msg, int len)
 int main(int argv, char *argc[])
 {
 
-    /* string logName = "ssxrver"; */
-    /* ssxrver::base::AsyncLogThread log_(logName); */
-    /* log_.start(); */
-    /* g_asyncLog = &log_; */
-    /* ssxrver::Logger::setOutput(asyncOutput); */
+    string logName = "./logs/ssxrver";
+    ssxrver::base::AsyncLogThread log_(logName);
+    log_.start();
+    g_asyncLog = &log_;
+    ssxrver::Logger::setOutput(asyncOutput);
 
     struct sockaddr_in serv_addr;
     bzero(&serv_addr, sizeof(serv_addr));

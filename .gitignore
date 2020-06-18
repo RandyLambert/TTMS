@@ -54,3 +54,4 @@ dkms.conf
 #file
 build/
 .vscode/
+logs/

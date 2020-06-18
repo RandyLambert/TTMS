@@ -16,7 +16,7 @@ class LogFile : noncopyable
 public:
     LogFile(const std::string &baseName, size_t rollSize = 1024 * 64, bool threadSafe = true);
     ~LogFile();
-    void append(char *log_, int len); //添加日志
+    void append(const char *log_, int len); //添加日志
     void flush();
     void rollFile(); //滚动日志
 
